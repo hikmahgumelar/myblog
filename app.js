@@ -31,7 +31,6 @@ app.configure('production', function(){
 app.get('/admin', routes.admin);
 app.get('/', routes.tampil);
 app.get('/add', routes.adddata);
-app.get('/show', routes.show);
 app.post('/input', routes.input);  
 app.get('/detail/:id', routes.detail);                                                                                                                                                                                                                                                                                                                                                                        
 app.listen(3000, function(){

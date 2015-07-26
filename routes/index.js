@@ -25,7 +25,7 @@ new posts({
   });
 }
 
-exports.admin = function (req, res){
+exports.admincontoh = function (req, res){
 
 res.render('admin', {title:"Halaman Admin"});
 
@@ -41,10 +41,10 @@ exports.tampil = function(req, res){
 }
 
 
-exports.show = function(req, res){ 
+exports.admin = function(req, res){ 
 mongoose.model('posts').find(function(err, posts){
 
-  res.render('data', {title:"tampil", data:posts});
+  res.render('data', {title:"halaman Admin", data:posts});
 });
 }
 
