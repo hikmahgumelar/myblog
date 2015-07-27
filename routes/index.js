@@ -21,7 +21,7 @@ new posts({
   }).save(function(err, prd){
     if(err) res.json(err);
     else    
-          res.redirect('/show');
+          res.redirect('/admin');
   });
 }
 
