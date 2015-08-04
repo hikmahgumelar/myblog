@@ -21,7 +21,7 @@ new posts({
   }).save(function(err, prd){
     if(err) res.json(err);
     else    
-          res.redirect('/admin');
+          res.redirect('/');
   });
 }
 
@@ -37,9 +37,11 @@ res.render('add',{title:"add data" });
 }
 
 exports.tampil = function(req, res){
-	res.render('index', {title:"Tampilan Awal"});
+mongoose.model('posts').find(function(err, posts){
+	
+  res.render('index', {title:"My Blog", data:posts});
+});
 }
-
 
 exports.admin = function(req, res){ 
 mongoose.model('posts').find(function(err, posts){
