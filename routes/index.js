@@ -11,7 +11,7 @@ var postSchema = new Schema({
 });
 
 var posts = mongoose.model('posts', postSchema);
-exports.input = function(req, res){
+var input = function(req, res){
 var tanggal = new Date();
 new posts({
     judul : req.body.judul,
@@ -25,32 +25,34 @@ new posts({
   });
 }
 
-exports.admincontoh = function (req, res){
+var login = function(req, res){ 
+mongoose.model('posts').find(function(err, posts){
 
-res.render('admin', {title:"Halaman Admin"});
-
+  res.render('data', {title:"Login", data:posts});
+});
 }
 
-exports.adddata = function(req, res){
+
+var adddata = function(req, res){
 res.render('add',{title:"add data" });
 
 }
 
-exports.tampil = function(req, res){
+var tampil = function(req, res){
 mongoose.model('posts').find(function(err, posts){
 	
   res.render('index', {title:"My Blog", data:posts});
 });
 }
 
-exports.admin = function(req, res){ 
+var admin = function(req, res){ 
 mongoose.model('posts').find(function(err, posts){
 
   res.render('data', {title:"halaman Admin", data:posts});
 });
 }
 
-exports.detail = function(req, res){
+var detail = function(req, res){
 
 mongoose.model('posts').findById(req.params.id,function(err, posts){
 
@@ -58,3 +60,9 @@ mongoose.model('posts').findById(req.params.id,function(err, posts){
 });  
 }
 
+module.exports.input = input;
+module.exports.login = login;
+module.exports.adddata = adddata;
+module.exports.tampil = tampil;
+module.exports.admin = admin;
+module.exports.detail = detail;

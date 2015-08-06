@@ -28,7 +28,7 @@ app.configure('production', function(){
   app.use(express.errorHandler());
   mongoose.connect('mongodb://172.21.1.144/blog');
 });
-app.get('/admin', routes.admin);
+app.get('/login', routes.login);
 app.get('/', routes.tampil);
 app.get('/add', routes.adddata);
 app.post('/input', routes.input);  
